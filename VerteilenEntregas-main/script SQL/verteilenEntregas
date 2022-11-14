@@ -1,0 +1,229 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.10
+-- Dumped by pg_dump version 14.2
+
+-- Started on 2022-05-28 21:07:14
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 207 (class 1259 OID 16484)
+-- Name: client_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.client_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.client_id_seq OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 206 (class 1259 OID 16479)
+-- Name: Client; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Client" (
+    clie_id integer DEFAULT nextval('public.client_id_seq'::regclass) NOT NULL,
+    clie_name character varying(50) NOT NULL,
+    clie_cpf character varying(50) NOT NULL,
+    clie_email character varying(50) NOT NULL,
+    "clie_phoneNumber" character varying(50) NOT NULL,
+    clie_state character varying(50) NOT NULL,
+    clie_city character varying(50) NOT NULL,
+    "clie_streetName" character varying(50) NOT NULL,
+    clie_number integer NOT NULL
+);
+
+
+ALTER TABLE public."Client" OWNER TO postgres;
+
+--
+-- TOC entry 205 (class 1259 OID 16476)
+-- Name: distributor_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.distributor_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.distributor_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 204 (class 1259 OID 16468)
+-- Name: Distributor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Distributor" (
+    dist_id integer DEFAULT nextval('public.distributor_id_seq'::regclass) NOT NULL,
+    "dist_distributorName" character varying(50) NOT NULL,
+    "dist_distributorCNPJ" character varying(50) NOT NULL,
+    "dist_distributorMail" character varying(50) NOT NULL,
+    "dist_phoneNumber" character varying(50) NOT NULL,
+    "dist_loadType" character varying(50) NOT NULL,
+    "dist_splitMaxCapacity" character varying(50) NOT NULL,
+    "dist_unitMaxCapacity" character varying(50) NOT NULL,
+    dist_state character varying(50) NOT NULL,
+    dist_city character varying(50) NOT NULL,
+    "dist_streetName" character varying(50) NOT NULL,
+    dist_number character varying(50) NOT NULL
+);
+
+
+ALTER TABLE public."Distributor" OWNER TO postgres;
+
+--
+-- TOC entry 203 (class 1259 OID 16465)
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.products_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 16458)
+-- Name: Products; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public."Products" (
+    prod_id integer DEFAULT nextval('public.products_id_seq'::regclass) NOT NULL,
+    prod_name character varying(50) NOT NULL,
+    "prod_loadCategory" character varying(50) NOT NULL,
+    "prod_stackingCapacity" character varying(50) NOT NULL
+);
+
+
+ALTER TABLE public."Products" OWNER TO postgres;
+
+--
+-- TOC entry 2839 (class 0 OID 16479)
+-- Dependencies: 206
+-- Data for Name: Client; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Client" (clie_id, clie_name, clie_cpf, clie_email, "clie_phoneNumber", clie_state, clie_city, "clie_streetName", clie_number) FROM stdin;
+1	Luiz	572.158.880-29	luiz@gmail.com	(43) 98787-8686	PR	Cornélio Procópio	Rua Petrin Ferreira	85
+2	Jailson	068.325.440-57	jailson@gmail.com	(43) 98787-8686	PR	Cornélio Procópio	Rua Petrin Ferreira	85
+3	Gabriel	404.580.640-76	gabriel@gmail.com	(43) 98787-8686	PR	Cornélio Procópio	Gleba córrego seco	85
+4	Cristina	109.704.990-60	cristina@gmail.com	(43) 98787-8686	PR	Itambaracá	Gleba córrego seco	85
+5	Sergio	109.704.990-60	sergio@gmail.com	(43) 98787-8686	PR	Itambaracá	Gleba córrego seco	85
+\.
+
+
+--
+-- TOC entry 2837 (class 0 OID 16468)
+-- Dependencies: 204
+-- Data for Name: Distributor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Distributor" (dist_id, "dist_distributorName", "dist_distributorCNPJ", "dist_distributorMail", "dist_phoneNumber", "dist_loadType", "dist_splitMaxCapacity", "dist_unitMaxCapacity", dist_state, dist_city, "dist_streetName", dist_number) FROM stdin;
+1	VerteilenEntregas	09.561.566/0001-67	verteilen_mail@gmail.com	(43) 98787-8686	Pesada	100 Toneladas	10 Toneladas	PR	Cornélio Procópio	Rua da flores	465
+2	LevaAki	65.908.422/0001-05	LevaAki_mail@gmail.com	(43) 98787-8686	Pesada	100 Toneladas	10 Toneladas	PR	Cornélio Procópio	Rua da flores	465
+3	Mercado livre	63.431.154/0001-58	mercado_mail@gmail.com	(43) 98787-8686	Pesada	1000 Toneladas	100 Toneladas	PR	Cornélio Procópio	Rua da flores	465
+\.
+
+
+--
+-- TOC entry 2835 (class 0 OID 16458)
+-- Dependencies: 202
+-- Data for Name: Products; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public."Products" (prod_id, prod_name, "prod_loadCategory", "prod_stackingCapacity") FROM stdin;
+1	Processador	Sensível	Até 10 caixas
+2	Monitor	Sensível	Até 5 caixas
+3	Refrigerante	Resistência moderada	Até 10 fardos
+4	Carne	Refrigerada	Indefinido
+\.
+
+
+--
+-- TOC entry 2846 (class 0 OID 0)
+-- Dependencies: 207
+-- Name: client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.client_id_seq', 5, true);
+
+
+--
+-- TOC entry 2847 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: distributor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.distributor_id_seq', 3, true);
+
+
+--
+-- TOC entry 2848 (class 0 OID 0)
+-- Dependencies: 203
+-- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.products_id_seq', 4, true);
+
+
+--
+-- TOC entry 2708 (class 2606 OID 16483)
+-- Name: Client Client_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Client"
+    ADD CONSTRAINT "Client_pkey" PRIMARY KEY (clie_id);
+
+
+--
+-- TOC entry 2706 (class 2606 OID 16475)
+-- Name: Distributor Distributor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Distributor"
+    ADD CONSTRAINT "Distributor_pkey" PRIMARY KEY (dist_id);
+
+
+--
+-- TOC entry 2704 (class 2606 OID 16462)
+-- Name: Products Products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public."Products"
+    ADD CONSTRAINT "Products_pkey" PRIMARY KEY (prod_id);
+
+
+-- Completed on 2022-05-28 21:07:15
+
+--
+-- PostgreSQL database dump complete
+--
+
