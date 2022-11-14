@@ -6,7 +6,6 @@ package view;
 
 import controllers.ControllerReadWriteBinaryObject;
 import controllers.ControllerReadWriteTextClient;
-import controllers.ControllerReports;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -21,7 +20,6 @@ import model.dao.ModelClientDAO;
 public class ViewRegisterClient extends javax.swing.JFrame {
 
     //Controller de relatórios
-    public ControllerReports reports = new ControllerReports();
 
     // Contador para verificar alterações de cadastro
     private int count = 0;
@@ -1243,43 +1241,33 @@ public class ViewRegisterClient extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void viewProductsReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProductsReportActionPerformed
-        reports.ProductReport(null, true);
     }//GEN-LAST:event_viewProductsReportActionPerformed
 
     private void generateProductPdfReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateProductPdfReportActionPerformed
-        reports.ProductReport(null, false);
     }//GEN-LAST:event_generateProductPdfReportActionPerformed
 
     private void viewClientsReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewClientsReportActionPerformed
-        reports.ClientReport(null, true);
     }//GEN-LAST:event_viewClientsReportActionPerformed
 
     private void generateClientsPdfReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateClientsPdfReport1ActionPerformed
-        reports.ClientReport(null, false);
     }//GEN-LAST:event_generateClientsPdfReport1ActionPerformed
 
     private void viewDistributorsReport2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewDistributorsReport2ActionPerformed
-        reports.DistributorReport(null, true);
     }//GEN-LAST:event_viewDistributorsReport2ActionPerformed
 
     private void generateDistributorsPdfReport2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateDistributorsPdfReport2ActionPerformed
-        reports.DistributorReport(null, false);
     }//GEN-LAST:event_generateDistributorsPdfReport2ActionPerformed
 
     private void viewSpecificProductReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSpecificProductReportActionPerformed
-         reports.ProductReport(reports.buildParams("specificProduct", "Digite o identificador do produto:"), true);
     }//GEN-LAST:event_viewSpecificProductReportActionPerformed
 
     private void viewSpecificClientsReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSpecificClientsReportActionPerformed
-        reports.ProductReport(reports.buildParams("specificClient", "Digite o identificador do cliente:"), true);
     }//GEN-LAST:event_viewSpecificClientsReportActionPerformed
 
     private void viewSpecificDistributorReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSpecificDistributorReportActionPerformed
-        reports.ProductReport(reports.buildParams("specificDistributor", "Digite o identificador da distribuidora:"), true);
     }//GEN-LAST:event_viewSpecificDistributorReportActionPerformed
 
     private void viewGroupClientsReport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewGroupClientsReport1ActionPerformed
-        reports.groupClientReport(null, true);
     }//GEN-LAST:event_viewGroupClientsReport1ActionPerformed
 
     /**
